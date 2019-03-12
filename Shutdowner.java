@@ -1,6 +1,6 @@
 /**
  *
- * @author Kiko
+ * @author keekoishere
  */
 
 package shutdowner;
@@ -9,28 +9,20 @@ import com.neovisionaries.i18n.CountryCode;
 import com.wrapper.spotify.SpotifyApi;
 import com.wrapper.spotify.SpotifyHttpManager;
 import com.wrapper.spotify.exceptions.SpotifyWebApiException;
-import com.wrapper.spotify.model_objects.credentials.AuthorizationCodeCredentials;
-import com.wrapper.spotify.requests.authorization.authorization_code.AuthorizationCodeRequest;
-import com.wrapper.spotify.requests.authorization.authorization_code.AuthorizationCodeUriRequest;
 import com.wrapper.spotify.model_objects.miscellaneous.CurrentlyPlayingContext;
-import com.wrapper.spotify.requests.authorization.authorization_code.AuthorizationCodeRefreshRequest;
 import com.wrapper.spotify.requests.data.player.GetInformationAboutUsersCurrentPlaybackRequest;
-import java.io.*;
 
 import java.io.IOException;
 import java.net.URI;
-import java.util.Scanner;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 
 public class Shutdowner {
 
     private static final String clientId = "9eebbd0704784cf597ee0f2048bfed83";
     private static final String clientSecret = "4fba634045214040bbaf490adf36e91d";
-    private static final URI redirectUri = SpotifyHttpManager.makeUri("https://localhost:8888/");
+    private static final URI redirectUri = SpotifyHttpManager.makeUri("YOUR APP REDIRECT URI HERE");
     private static String code = "";
     private static String[] tokens = new String[2]; // 0 is access token, 1 is refresh
-    private static String FilePath = "C:\\Users\\Kiko\\Desktop\\shutdowner\\token.txt";
+    private static String FilePath = "filepath where you'll be saving your tokens for the auth";
 
     // creating SpotifyApi object for the access
     private static SpotifyApi spotifyApi = new SpotifyApi.Builder()
