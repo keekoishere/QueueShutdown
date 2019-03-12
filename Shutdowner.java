@@ -17,12 +17,12 @@ import java.net.URI;
 
 public class Shutdowner {
 
-    private static final String clientId = "9eebbd0704784cf597ee0f2048bfed83";
-    private static final String clientSecret = "4fba634045214040bbaf490adf36e91d";
-    private static final URI redirectUri = SpotifyHttpManager.makeUri("YOUR APP REDIRECT URI HERE");
-    private static String code = "";
+    private static final String clientId = "";
+    private static final String clientSecret = "";
+    private static final URI redirectUri = SpotifyHttpManager.makeUri("");
+    private static String code = ""; // dont change this
     private static String[] tokens = new String[2]; // 0 is access token, 1 is refresh
-    private static String FilePath = "filepath where you'll be saving your tokens for the auth";
+    private static String FilePath = "";
 
     // creating SpotifyApi object for the access
     private static SpotifyApi spotifyApi = new SpotifyApi.Builder()
