@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package shutdowner;
 
 import com.wrapper.spotify.SpotifyApi;
@@ -22,7 +17,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Kiko
+ * @author Keeko
  */
 public class APIhelpers {
     
@@ -32,7 +27,7 @@ public class APIhelpers {
     {
         File file = new File (filepath);
         BufferedWriter out = new BufferedWriter(new FileWriter(file)); 
-        out.write(atoken+"\n"+rtoken);
+        out.write(atoken+ "\n" +rtoken);
         out.close();
     }
      
@@ -48,6 +43,7 @@ public class APIhelpers {
     
     public static void refreshTokens(SpotifyApi spotifyApi){
         
+        // using a SpotifyApi object, call the refresh method with your latest tokens saved 
         final AuthorizationCodeRefreshRequest authorizationCodeRefreshRequest = spotifyApi.authorizationCodeRefresh()
                 .build();
             
@@ -65,24 +61,24 @@ public class APIhelpers {
     
     // method to get tokens from code and URI
     public static void authorizationCodeUri(String code, SpotifyApi spotifyApi){
-        final AuthorizationCodeRefreshRequest authorizationCodeRefreshRequest = spotifyApi.authorizationCodeRefresh()
-            .build();
         
         final AuthorizationCodeUriRequest authorizationCodeUriRequest = spotifyApi.authorizationCodeUri()
             .state("x4xkmn9pu3j6ukrs8n")
             .scope("user-read-playback-state")
             .show_dialog(true)
             .build();
-            
+        
         final URI uri = authorizationCodeUriRequest.execute();
-            
-        System.out.println("Copy this URL:");
+        
+        // print out the URI given with the authorizationCodeUriRequest so you can allow access to this app;
+        System.out.println("Copy this URL to your browser:");
         System.out.println(uri.toString());
         
         Scanner reader = new Scanner(System.in);
-        System.out.println("Paste the code from the URL after the redirect: ");
+        System.out.println("Paste the code on the new URL (after code= and before the &): ");
         code = reader.nextLine();
 
+        // use the code read by the user after the redirect to finally get the tokens
         final AuthorizationCodeRequest authorizationCodeRequest = spotifyApi.authorizationCode(code)
             .build();
                 
