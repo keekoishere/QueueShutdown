@@ -10,4 +10,4 @@ How to:
 3) Change the filepath variable to a text file where you can save your access tokens for the User Authentication;
 4) Run the project in your IDE or create a .jar executable;
 5) Run first time and follow steps for the authorization flow;
-6) Now you have your tokens in a file and from now on you just need to doubleclick the .jar to start;
+6) Your tokens are in a file and from now on you just need to doubleclick the .jar to start! Enjoy.
